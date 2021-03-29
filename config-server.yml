@@ -1,2 +1,6 @@
 my:
   name: rkd
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1000/eureka/
