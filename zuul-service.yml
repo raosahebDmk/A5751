@@ -1,0 +1,29 @@
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:1000/eureka/
+      
+
+zuul:
+  prefix: /apigateway
+  routes:
+    resource:
+    PRODUCT-SERVICE:
+      path: /prod/**
+      service-id: PRODUCT-SERVICE
+    SHIPPING-CAT-SERVICE:
+      path: /shipping/**
+      service-id: SHIPPING-CAT-SERVICE
+
+management:
+  endpoint:
+    routes:
+      enabled: true
+    restart:
+      enabled: true
+    shutdown:
+      enabled: true
+    health:
+      enabled: true         
